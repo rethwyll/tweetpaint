@@ -3,5 +3,15 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 class tweetpaint.search
-  http://search.twitter.com/search.json?q=%40twitterapi
+  apiCalls = 
+    search: 'http://search.twitter.com/search.json?q='
+
+  constructor: =>
+
+  doSearch: (query) =>
+    $.ajax ->
+      url: apiCalls.search + query
+      success: resp ->
+
+  
 
