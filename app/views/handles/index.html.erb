@@ -1,0 +1,23 @@
+<h1>Listing handles</h1>
+
+<table>
+  <tr>
+    <th>Handle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @handles.each do |handle| %>
+  <tr>
+    <td><%= handle.handle %></td>
+    <td><%= link_to 'Show', handle %></td>
+    <td><%= link_to 'Edit', edit_handle_path(handle) %></td>
+    <td><%= link_to 'Destroy', handle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Handle', new_handle_path %>

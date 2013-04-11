@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweetpaint</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if false %>
+<form class="form-horizontal">
+  <select>
+    <% @handles.each do |handle|  %>
+      <option value="/<%= handle.handle.downcase %>"><%= handle.handle %></option>
+    <% end %>
+  </select>
+  <%= link_to 'Manage Twitter accounts', handles_path %>
+</form>  
+<% end %>
+
+<h1><%= @handle.handle %></h1>
+
+<nav>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#">Search</a></li>
+    <li><a href="">Currently following</a></li>
+    <li><a href="#">Nudged queue</a></li>
+    <li><a href="#">Follow queue</a></li>
+    <li><a href="#">Unfollow queue</a></li>
+  </ul>
+</nav>
+<div id="list-container"></div>
+
+<%= yield %>
+
+</body>
+</html>
