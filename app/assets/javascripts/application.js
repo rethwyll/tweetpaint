@@ -2,14 +2,16 @@
 //= require jquery_ujs
 //= require_tree .
 
-tweetpaint.Models = {}
-tweetpaint.Views = {}
 
+window.tweetpaint = window.tweetpaint || {}
 tweetpaint.App = function () {
 
-  $('#search').on('submit', function(){
-    searchModel = new tweetpaint.Models.Search({q: $('#q').val(), type: 'tweet'});
-    searchView = new tweetpaint.Views.Search({model: searchModel});
+  $(document).ready(function () {
+    $('#submit-search').on('click', function(e){
+      e.preventDefault();
+      var searchModel = new tweetpaint.Models.Search({q: 'darren criss', type: 'tweet'});
+      var searchView = new tweetpaint.Views.Search({model: searchModel});
+    });
   });
 
 }();
