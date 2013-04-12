@@ -14,7 +14,9 @@ Tweetpaint::Application.routes.draw do
   end 
 
 
-  match 'handles/:handle/search' => 'handles#search'
+  match 'handles/:id/search' => 'handles#search'
+  match 'handles/:id' => 'handles#search'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

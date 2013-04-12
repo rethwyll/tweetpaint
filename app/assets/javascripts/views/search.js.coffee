@@ -1,0 +1,5 @@
+tweetpaint.Views.Search = ->
+ 
+  constructor =  ->
+
+
