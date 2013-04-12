@@ -1,0 +1,23 @@
+<h1>Listing tweeter_queues</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tweeter_queues.each do |tweeter_queue| %>
+  <tr>
+    <td><%= tweeter_queue.name %></td>
+    <td><%= link_to 'Show', tweeter_queue %></td>
+    <td><%= link_to 'Edit', edit_tweeter_queue_path(tweeter_queue) %></td>
+    <td><%= link_to 'Destroy', tweeter_queue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tweeter queue', new_tweeter_queue_path %>

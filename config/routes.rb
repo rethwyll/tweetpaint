@@ -1,7 +1,13 @@
 Tweetpaint::Application.routes.draw do
 
+  resources :tweeter_queues
+
+
+  resources :tweeters
+
 
   resources :handles
+
 
   match 'handles/:handle/search' => 'handles#search'
 

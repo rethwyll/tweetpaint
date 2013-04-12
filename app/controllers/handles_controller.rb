@@ -37,16 +37,6 @@ class HandlesController < ApplicationController
     @handle = Handle.find(params[:id])
   end
 
-  # GET /handles/1/search
-  def search
-    @handle = Handle.find(params[:handle])
-  end
-
-  # GET /handles/1/following
-  def following
-    @handle = Handle.find(params[:id])
-  end
-
   # POST /handles
   # POST /handles.json
   def create
