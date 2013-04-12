@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<% if false %>
 <form class="form-horizontal">
   <select>
     <% @handles.each do |handle|  %>
@@ -17,10 +16,9 @@
   </select>
   <%= link_to 'Manage Twitter accounts', handles_path %>
 </form>  
-<% end %>
 
-
-
+<% unless @handle.empty %>
+<h1><%= @handle.handle %></h1>
 <nav>
   <ul class="nav nav-tabs">
     <li class="active"><a href="#">Search</a></li>
@@ -33,6 +31,7 @@
 <div id="list-container"></div>
 
 <%= yield %>
+<% end %>
 
 </body>
 </html>

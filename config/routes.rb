@@ -9,6 +9,7 @@ Tweetpaint::Application.routes.draw do
 
 
   resources :handles do
+    get 'search', :on => :member
     resources :tweeter_queues, :tweeters
   end 
 
