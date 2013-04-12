@@ -6,8 +6,8 @@ class Handle < ActiveRecord::Base
   before_save :default_values 
 
   def default_values
-    self.nudged_queue = TweeterQueue.new(:name => "Nudged")
-    self.follow_queue = TweeterQueue.new(:name => "Follow")
-    self.unfollow_queue = TweeterQueue.new(:name => "Unfollow")
+	@nudged_queue = TweeterQueue.new(:name => "Nudged")
+    @follow_queue = TweeterQueue.new(:name => "Follow")
+    @unfollow_queue = TweeterQueue.new(:name => "Unfollow")
   end
 end
