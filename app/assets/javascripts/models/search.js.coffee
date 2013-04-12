@@ -19,6 +19,7 @@ class tweetpaint.Models.Search
   extractTweeters: (results) ->
     tweeters = []
     for result in results
+      # TODO: mass lookup on tweeters, not one at a time
       tweeter = new tweetpaint.Models.Tweeters(result.from_user)
       tweeters.push(tweeter)
     tweeters
