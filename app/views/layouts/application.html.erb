@@ -35,6 +35,16 @@
 
 <%= yield %>
 
-
+<script type="text/x-mustache-template" id="tTweeters">
+<ul>
+{{#tweeters}}
+  <li>
+    <img src="{{image_url}}">
+    {{handle}}
+    {{text}}
+  </li>
+{{/tweeters}}
+</ul>
+</script>
 </body>
 </html>

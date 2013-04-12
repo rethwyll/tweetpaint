@@ -1,11 +1,11 @@
 //= require jquery
 //= require jquery_ujs
+//= require mustache
 //= require_tree .
 
 
 window.tweetpaint = window.tweetpaint || {}
 tweetpaint.App = function () {
-
   $(document).ready(function () {
     $('#submit-search').on('click', function(e){
       e.preventDefault();
