@@ -1,2 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div id="following-results"></div>
+<script type="text/javascript" defer>
+$(document).ready(function () {
+
+  var followingModel = new tweetpaint.Models.Following({ following: <%= raw @following %> });
+  var followingView = new tweetpaint.Views.Following({model: followingModel});
+
+});
+</script>

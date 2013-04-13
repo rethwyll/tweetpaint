@@ -13,11 +13,6 @@ tweetpaint.App = function () {
       var searchView = new tweetpaint.Views.Search({model: searchModel});
     });
 
-    if ($('#following-results').length){
-      var followingModel = new tweetpaint.Models.Following();
-      var followingView = new tweetpaint.Views.Following({model: followingModel});
-    }
-
   });
 
 }();

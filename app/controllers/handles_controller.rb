@@ -42,6 +42,7 @@ class HandlesController < ApplicationController
   # GET /handles/following.json
   def following
     @handle = Handle.find(params[:id])
+    @following = Twitter.friends('rethwyll', {:cursor => -1, :skip_status => 't'}).users.to_json
   end
 
 
