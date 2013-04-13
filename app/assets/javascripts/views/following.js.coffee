@@ -1,11 +1,11 @@
 window.tweetpaint = window.tweetpaint || {}
 tweetpaint.Views = tweetpaint.Views || {}
 
-class tweetpaint.Views.Search
+class tweetpaint.Views.Following
   constructor: (obj) ->
     @model = obj.model
-    @template = $('#tTweeters').html() #TODO: Mustache.compile
-    @el = '#search-results'   
+    @template = $('#tFollowing').html() #TODO: Mustache.compile
+    @el = '#following-results'   
     @addEvents()
 
   addEvents: ->

@@ -3,7 +3,7 @@ tweetpaint.Models = tweetpaint.Models || {}
 
 class tweetpaint.Models.Search 
   apiCalls =
-    tweet: 'http://search.twitter.com/search.json?q='
+    tweet: 'http://search.twitter.com/search.json?page=1&rpp=50&q='
     bio: 'https://api.twitter.com/1.1/users/search.json?q='
 
   constructor: (obj) ->
@@ -13,13 +13,8 @@ class tweetpaint.Models.Search
     @doSearch()
 
   doSearch: ->
-    $.get @url, (resp) =>
-      @tweeters = @extractTweeters(resp.results)
-
+    $.get @url, (resp) =>   
+      @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.results), searchModel: $(this) })
+          
   extractTweeters: (results) ->
-    tweeters = []
-    for result in results
-      # TODO: mass lookup on tweeters, not one at a time
-      tweeter = new tweetpaint.Models.Tweeters(result.from_user)
-      tweeters.push(tweeter)
-    tweeters
+    $.map(results, (o) -> return o['from_user']).join(',')

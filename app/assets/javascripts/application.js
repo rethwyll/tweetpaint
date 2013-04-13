@@ -12,6 +12,12 @@ tweetpaint.App = function () {
       var searchModel = new tweetpaint.Models.Search({q: $('#q').val(), type: 'tweet'});
       var searchView = new tweetpaint.Views.Search({model: searchModel});
     });
+
+    if ($('#following-results').length){
+      var followingModel = new tweetpaint.Models.Following();
+      var followingView = new tweetpaint.Views.Following({model: followingModel});
+    }
+
   });
 
 }();
