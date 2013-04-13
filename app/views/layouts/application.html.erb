@@ -45,7 +45,12 @@
     {{description}}
     {{text}}
     {{followers_count}}
+    {{#following}}
+    <button class="btn btn-danger">Unfollow</button>  
+    {{/following}}  
+    {{^following}}
     <button class="btn btn-primary">Follow</button>
+    {{/following}}
     <button class="btn btn-warning">Nudge</button>
   </li>
 {{/tweeters}}

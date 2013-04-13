@@ -11,7 +11,7 @@ class tweetpaint.Models.Following
 
   doSearch: ->
     $.get @url, (resp) =>   
-      @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.results), searchModel: $(this) })
+      @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.users), searchModel: $(this) })
           
   extractTweeters: (results) ->
     $.map(results, (o) -> return o['from_user']).join(',')

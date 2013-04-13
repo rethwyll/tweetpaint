@@ -31,7 +31,8 @@ class tweetpaint.Models.Tweeters
           score: score
           tag: tag      
           text: if o.hasOwnProperty('status') then o.status.text else ''
-          followers_count: o.followers_count )
+          followers_count: o.followers_count
+          following: o.following )
         .sort((a,b) -> b.score-a.score)
       obj.searchModel.trigger('searchcomplete') 
 
