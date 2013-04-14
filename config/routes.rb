@@ -17,6 +17,9 @@ Tweetpaint::Application.routes.draw do
   match 'handles/:id/search' => 'handles#search'
   match 'handles/:id/following' => 'handles#following'
   match 'handles/:id/nudged' => 'handles#nudged'
+  match 'handles/:id/follow' => 'handles#follow'
+  match 'handles/:id/unfollow' => 'handles#unfollow'
+
   match 'handles/:id' => 'handles#search'
 
 

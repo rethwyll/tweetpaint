@@ -21,7 +21,7 @@ class HandlesController < ApplicationController
   def show
     @handle = Handle.find(params[:id])
     @showNav = true
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @handle }
@@ -60,6 +60,20 @@ class HandlesController < ApplicationController
     @handle = Handle.find(params[:id])
     @showNav = true
     @nudged = Twitter.favorites(@handle, {:count => 50}).to_json
+  end
+
+  # GET /handles/1/follow
+  # GET /handles/1/follow.json
+  def follow
+    @handle = Handle.find(params[:id])
+    @showNav = true
+  end
+
+  # GET /handles/1/unfollow
+  # GET /handles/1/unfollow.json
+  def unfollow
+    @handle = Handle.find(params[:id])
+    @showNav = true
   end
 
   # GET /handles/1/edit
