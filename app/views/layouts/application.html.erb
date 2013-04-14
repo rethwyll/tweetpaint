@@ -9,7 +9,7 @@
 <body>
 
 
-<% if false %>
+<% if @showNav %>
 <form class="form-horizontal">
   <select>
     <% @handles.each do |handle|  %>
@@ -18,10 +18,7 @@
   </select>
   <%= link_to 'Manage Twitter accounts', handles_path %>
 </form>  
-
-<h1><%= @handle.handle %></h1>
-<% end %>
-
+<h1>@<%= @handle.handle %></h1>
 <nav>
   <ul class="nav nav-tabs">
     <li><a href="/handles/1/search">Search</a></li>
@@ -31,6 +28,9 @@
     <li><a href="/handles/1/unfollow">Unfollow</a></li>
   </ul>
 </nav>
+<% end %>
+
+
 <div id="list-container"></div>
 
 <%= yield %>
@@ -38,7 +38,7 @@
 <script type="text/x-mustache-template" id="tTweeters">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+  <li class="tweeter picture {{tag}}" data-handle="{{handle}}">
     <div class="dashboard">
     <img src="{{image_url}}">
     <div class="followers">{{followers_count}} followers</div>
@@ -69,7 +69,7 @@
 <script type="text/x-mustache-template" id="tFollowing">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+  <li class="tweeter picture {{tag}}" data-handle="{{handle}}">
     <div class="actions">
     <button class="btn btn-danger unfollow">Unfollow</button>  
     <button class="btn btn-warning nudge">Nudge Now</button>    
@@ -88,7 +88,7 @@
 <script type="text/x-mustache-template" id="tNudged">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+  <li class="tweeter picture {{tag}}" data-handle="{{handle}}">
     <div class="actions">
     <button class="btn btn-danger remove">Remove</button>  
     <button class="btn btn-warning nudge">Nudge Again</button>    
@@ -111,7 +111,7 @@
 <script type="text/x-mustache-template" id="tQueue">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+  <li class="tweeter picture {{tag}}" data-handle="{{handle}}">
     <div class="actions">
     <button class="btn btn-danger unfollow">Remove</button>  
     </div>  

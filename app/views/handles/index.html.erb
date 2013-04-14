@@ -1,23 +1,15 @@
-<h1>Listing handles</h1>
+<h1>All Twitter Accounts</h1>
 
-<table>
-  <tr>
-    <th>Handle</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class="unstyled">
 <% @handles.each do |handle| %>
-  <tr>
-    <td><%= handle.handle %></td>
-    <td><%= link_to 'Show', handle %></td>
-    <td><%= link_to 'Edit', edit_handle_path(handle) %></td>
-    <td><%= link_to 'Destroy', handle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <li class="handle">
+    <div class="actions">
+    <%= link_to 'Show', handle, class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_handle_path(handle), class: 'btn btn-info' %>
+    <%= link_to 'Destroy', handle, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </div>
+    <h2><%= handle.handle %></h2>
+  </li>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Handle', new_handle_path %>
+</ul>
+<%= link_to 'New Twitter Account', new_handle_path %>

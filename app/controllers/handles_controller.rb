@@ -1,9 +1,15 @@
 class HandlesController < ApplicationController
+
+  before_filter :default_values
+
+  def default_values
+      @handles = Handle.all
+      @showNav = false
+  end
+
   # GET /handles
   # GET /handles.json
   def index
-    @handles = Handle.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @handles }
@@ -14,7 +20,8 @@ class HandlesController < ApplicationController
   # GET /handles/1.json
   def show
     @handle = Handle.find(params[:id])
-
+    @showNav = true
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @handle }
@@ -36,12 +43,14 @@ class HandlesController < ApplicationController
   # GET /handles/1/search.json
   def search
     @handle = Handle.find(params[:id])
+    @showNav = true
   end
 
   # GET /handles/1/following
   # GET /handles/1/following.json
   def following
     @handle = Handle.find(params[:id])
+    @showNav = true
     @following = Twitter.friends(@handle, {:cursor => -1, :skip_status => 't'}).users.to_json
   end
 
@@ -49,6 +58,7 @@ class HandlesController < ApplicationController
   # GET /handles/1/nudged.json
   def nudged
     @handle = Handle.find(params[:id])
+    @showNav = true
     @nudged = Twitter.favorites(@handle, {:count => 50}).to_json
   end
 
