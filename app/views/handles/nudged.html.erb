@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<div id="nudged-results" class="results"></div>
+<script type="text/javascript" defer>
+$(document).ready(function () {
+
+  var nudgedModel = new tweetpaint.Models.Nudged({ nudged: <%= raw @nudged %> });
+  var nudgedView = new tweetpaint.Views.Nudged({model: nudgedModel});
+
+});
+</script>

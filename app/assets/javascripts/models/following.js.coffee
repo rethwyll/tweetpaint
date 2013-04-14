@@ -3,7 +3,7 @@ tweetpaint.Models = tweetpaint.Models || {}
 
 class tweetpaint.Models.Following 
   constructor: (obj)->
-    @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(obj.following), searchModel: $(this) })
+    @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(obj.following), doLookups: true, searchModel: $(this) })
           
   extractTweeters: (results) ->
-    $.map(results, (o) -> return o['screen_name']).join(',')
+    $.map(results, (o) -> return o.screen_name).join(',')

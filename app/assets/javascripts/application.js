@@ -13,6 +13,20 @@ tweetpaint.App = function () {
       var searchView = new tweetpaint.Views.Search({model: searchModel});
     });
 
+    $('.results').on('click', '.follow', function (e) {
+
+    });
+
+    $('.results').on('click', '.unfollow', function (e) {
+
+    });
+
+    $('.results').on('click', '.nudge', function (e) {
+      var handle = $(e.target).parents('.tweeter').data('handle');
+      var nudgeModel = new tweetpaint.Models.Nudge({ handle: handle });
+      var nudgeView = new tweetpaint.Views.Nudge({model: nudgeModel, el: $(e.target)});
+    });
+
   });
 
 }();

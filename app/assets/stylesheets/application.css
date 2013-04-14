@@ -1,26 +1,42 @@
 //= require twitter/bootstrap
 
 body {
-  padding: 50px; }
+	font-size: 12px; 
+	padding: 50px; }
+
+
+h3 {  
+	font-size: 1em; 
+	line-height: 1.5em; 
+	margin-top: 0;
+	margin-bottom: 0;
+}
+h3 a { color: #000; }
+h4 {  
+	font-size: .8em; 
+	line-height: 1em; 
+	margin-top: 0;
+}
 
 .tweeter {
+	overflow: auto;
+	padding: 10px 10px 10px 100px;
 	margin: 0 0 20px;
+	position: relative;
 }
-.null {
-	background: #ddd;
-}
-.low {
-	background: #f5767d;
-}
-.low-med {
-	background: #ed825a;
-}
-.med {
-	background: #edb65a;
-}
-.med-high {
-	background: #a0d953;
-}
-.high {
-	background: #52afb8;
+.dashboard {
+	font-size: 10px;  
+	position: absolute;
+	top: 10px;
+	left: 10px; }
+
+.null { background: #ddd; @include background-image(linear-gradient(#ddd, #fff)); }
+.low { background: #f5767d; @include background-image(linear-gradient(#f5767d, #fff)); }
+.low-med { background: #ed825a; @include background-image(linear-gradient(#ed825a, #fff)); }
+.med { background: #edb65a; @include background-image(linear-gradient(#edb65a, #fff)); }
+.med-high { background: #a0d953; @include background-image(linear-gradient(#a0d953, #fff)); }
+.high { background: #52afb8; @include background-image(linear-gradient(#52afb8, #fff)); }
+
+.actions {
+	float: right;
 }

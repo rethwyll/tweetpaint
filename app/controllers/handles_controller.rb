@@ -32,19 +32,28 @@ class HandlesController < ApplicationController
     end
   end
 
-  # GET /handles/search
-  # GET /handles/search.json
+  # GET /handles/1/search
+  # GET /handles/1/search.json
   def search
     @handle = Handle.find(params[:id])
   end
 
-  # GET /handles/following
-  # GET /handles/following.json
+  # GET /handles/1/following
+  # GET /handles/1/following.json
   def following
     @handle = Handle.find(params[:id])
-    @following = Twitter.friends('rethwyll', {:cursor => -1, :skip_status => 't'}).users.to_json
+    @following = Twitter.friends(@handle, {:cursor => -1, :skip_status => 't'}).users.to_json
   end
 
+  # GET /handles/1/nudged
+  # GET /handles/1/nudged.json
+  def nudged
+    @handle = Handle.find(params[:id])
+    @nudged = []
+    Twitter.favorites(@handle, {:count => 50}).each do | favorite |
+      @nudged << favorite.user.to_json
+    end
+  end
 
   # GET /handles/1/edit
   def edit

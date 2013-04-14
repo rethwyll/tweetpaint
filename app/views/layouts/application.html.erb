@@ -38,20 +38,28 @@
 <script type="text/x-mustache-template" id="tTweeters">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter {{tag}}">
+  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+    <div class="dashboard">
     <img src="{{image_url}}">
-    {{score}}
-    {{handle}}
-    {{description}}
-    {{text}}
-    {{followers_count}}
+    <div class="followers">{{followers_count}} followers</div>
+    <div class="score">Score: {{score}}</div>
+    </div>
+    <hgroup>
+    <h3 class="handle"><a href="http://www.twitter.com/{{handle}}">{{handle}}</a></h3>
+    <h4 class="description">{{description}}</h4>
+    </hgroup>
+  
+    <div class="text">{{text}}</div>
+    
+    <div class="actions">
     {{#following}}
-    <button class="btn btn-danger">Unfollow</button>  
+    <button class="btn btn-danger unfollow">Unfollow</button>  
     {{/following}}  
     {{^following}}
-    <button class="btn btn-primary">Follow</button>
+    <button class="btn btn-primary follow">Follow</button>
     {{/following}}
-    <button class="btn btn-warning">Nudge</button>
+    <button class="btn btn-warning nudge">Nudge Now</button>
+    </div>
   </li>
 {{/tweeters}}
 </ul>
@@ -60,15 +68,40 @@
 <script type="text/x-mustache-template" id="tFollowing">
 <ul class="unstyled">
 {{#tweeters}}
-  <li class="tweeter">
+  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+    <div class="actions">
+    <button class="btn btn-danger unfollow">Unfollow</button>  
+    <button class="btn btn-warning nudge">Nudge Now</button>    
+    </div>  
+    <div class="dashboard">
     <img src="{{image_url}}">
-    {{handle}}
-    {{score}}
-    {{followers_count}}
-    <button class="btn btn-danger">Unfollow</button>
+    </div>
+    <h3 class="handle"><a href="http://www.twitter.com/{{handle}}">{{handle}}</a></h3>
+    <div class="followers">{{followers_count}} followers</div>
+    <div class="score">Score: {{score}}</div>
   </li>
 {{/tweeters}}
 </ul>
 </script>
+
+<script type="text/x-mustache-template" id="tNudged">
+<ul class="unstyled">
+{{#tweeters}}
+  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+    <div class="actions">
+    <button class="btn btn-danger remove">Remove</button>  
+    <button class="btn btn-warning nudge">Nudge Again</button>    
+    </div>  
+    <div class="dashboard">
+    <img src="{{image_url}}">
+    </div>
+    <h3 class="handle"><a href="http://www.twitter.com/{{handle}}">{{handle}}</a></h3>
+    <div class="followers">{{followers_count}} followers</div>
+    <div class="score">Score: {{score}}</div>
+  </li>
+{{/tweeters}}
+</ul>
+</script>
+
 </body>
 </html>

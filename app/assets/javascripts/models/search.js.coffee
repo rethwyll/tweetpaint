@@ -7,13 +7,12 @@ class tweetpaint.Models.Search
     bio: 'https://api.twitter.com/1.1/users/search.json?q='
 
   constructor: (obj) ->
-    @q = obj.q
-    @type = obj.type
-    @url = apiCalls.tweet + encodeURI(@q) 
-    @doSearch()
+    @doSearch({
+      url: apiCalls.tweet + encodeURI(obj.q)
+    })
 
-  doSearch: ->
-    $.get @url, (resp) =>   
+  doSearch: (obj) ->
+    $.get obj.url, (resp) =>   
       @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.results), searchModel: $(this) })
           
   extractTweeters: (results) ->
