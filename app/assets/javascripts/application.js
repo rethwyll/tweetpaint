@@ -14,11 +14,21 @@ tweetpaint.App = function () {
     });
 
     $('.results').on('click', '.follow', function (e) {
-
+      /*
+      var handle = $(e.target).parents('.tweeter').data('handle');
+      var nudgeModel = new tweetpaint.Models.Nudge({ handle: handle });
+      var nudgeView = new tweetpaint.Views.Nudge({model: nudgeModel, el: $(e.target)});
+      */
+      $(e.target).removeClass('btn-primary').addClass('btn-success').text('Added to Follow Queue')
     });
 
     $('.results').on('click', '.unfollow', function (e) {
-
+      /*
+      var handle = $(e.target).parents('.tweeter').data('handle');
+      var nudgeModel = new tweetpaint.Models.Nudge({ handle: handle });
+      var nudgeView = new tweetpaint.Views.Nudge({model: nudgeModel, el: $(e.target)});
+      */
+      $(e.target).removeClass('btn-danger').addClass('btn-success').text('Added to Unfollow Queue')
     });
 
     $('.results').on('click', '.nudge', function (e) {
@@ -28,5 +38,4 @@ tweetpaint.App = function () {
     });
 
   });
-
 }();

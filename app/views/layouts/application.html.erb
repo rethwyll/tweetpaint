@@ -24,11 +24,11 @@
 
 <nav>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Search</a></li>
-    <li><a href="">Currently following</a></li>
-    <li><a href="#">Nudged queue</a></li>
-    <li><a href="#">Follow queue</a></li>
-    <li><a href="#">Unfollow queue</a></li>
+    <li><a href="/handles/1/search">Search</a></li>
+    <li><a href="/handles/1/following">Currently Following</a></li>
+    <li><a href="/handles/1/nudged">Nudged</a></li>
+    <li><a href="/handles/1/follow">Follow</a></li>
+    <li><a href="/handles/1/unfollow">Unfollow</a></li>
   </ul>
 </nav>
 <div id="list-container"></div>
@@ -49,7 +49,8 @@
     <h4 class="description">{{description}}</h4>
     </hgroup>
   
-    <div class="text">{{text}}</div>
+
+    <div class="text">{{#text}}{{text}}{{/text}}{{^text}}[No tweet available]{{/text}}</div>
     
     <div class="actions">
     {{#following}}
@@ -91,6 +92,28 @@
     <div class="actions">
     <button class="btn btn-danger remove">Remove</button>  
     <button class="btn btn-warning nudge">Nudge Again</button>    
+    </div>  
+    <div class="dashboard">
+    <img src="{{image_url}}">
+    <div class="followers">{{followers_count}} followers</div>
+    <div class="score">Score: {{score}}</div>
+    </div>
+    <h3 class="handle"><a href="http://www.twitter.com/{{handle}}">{{handle}}</a></h3>
+    <h4 class="nudged">Nudged tweet:</h4>
+    <div class="text">{{text}}</div>
+    <a href="http://www.twitter.com/{{handle}}/status/{{tweet_id}}">
+    http://www.twitter.com/{{handle}}/status/{{tweet_id}}</a>
+  </li>
+{{/tweeters}}
+</ul>
+</script>
+
+<script type="text/x-mustache-template" id="tQueue">
+<ul class="unstyled">
+{{#tweeters}}
+  <li class="tweeter {{tag}}" data-handle="{{handle}}">
+    <div class="actions">
+    <button class="btn btn-danger unfollow">Remove</button>  
     </div>  
     <div class="dashboard">
     <img src="{{image_url}}">

@@ -9,7 +9,7 @@ class tweetpaint.Views.Nudge
     #@addEvents()
 
   addEvents: ->
-    $(@model).on 'nudgecomplete', @render
+    $(@model).on 'complete', @render
 
   render: =>
     @el.removeClass('btn-warning').addClass('btn-success').text('Nudged!')

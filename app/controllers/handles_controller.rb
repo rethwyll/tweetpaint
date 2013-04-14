@@ -49,10 +49,7 @@ class HandlesController < ApplicationController
   # GET /handles/1/nudged.json
   def nudged
     @handle = Handle.find(params[:id])
-    @nudged = []
-    Twitter.favorites(@handle, {:count => 50}).each do | favorite |
-      @nudged << favorite.user.to_json
-    end
+    @nudged = Twitter.favorites(@handle, {:count => 50}).to_json
   end
 
   # GET /handles/1/edit

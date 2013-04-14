@@ -11,6 +11,7 @@ class tweetpaint.Views.Search
   addEvents: ->
     $(@model).on 'searchcomplete', @render
 
-  render: =>
-    $(@el).html(Mustache.render(@template, @model.result))
+  render: => 	 
+    @model.result.tweeters.sort((a,b) -> b.score-a.score)
+    $(@el).html(Mustache.render(@template, @model.result ))
  

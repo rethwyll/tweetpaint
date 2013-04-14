@@ -9,8 +9,9 @@ class tweetpaint.Views.Following
     @addEvents()
 
   addEvents: ->
-    $(@model).on 'searchcomplete', @render
+    $(@model).on 'followingcomplete', @render
 
   render: =>
+    @model.result.tweeters.sort((a,b) -> b.score-a.score)   
     $(@el).html(Mustache.render(@template, @model.result))
  

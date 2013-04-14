@@ -22,4 +22,4 @@ class tweetpaint.Models.Nudge
   favoriteTweet: (id) =>
     url = apiCalls.nudge + id
     $.post url, (resp) =>   
-      @model.trigger('nudgecomplete')
+      tweetpaint.Utilities.complete { model: $(this), name: 'nudgedcomplete' }
