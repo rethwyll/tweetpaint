@@ -12,8 +12,11 @@ class tweetpaint.Models.Search
     })
 
   doSearch: (obj) ->
-    $.get obj.url, (resp) =>   
-      @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.results), doLookups: true, complete: { model: $(this), name: 'searchcomplete'} })
+    $.ajax 
+      url: obj.url
+      dataType: 'jsonp'
+      success: (resp) =>   
+        @result = new tweetpaint.Models.Tweeters({ handles: @extractTweeters(resp.results), doLookups: true, complete: { model: $(this), name: 'searchcomplete'} })
 
 
   extractTweeters: (results) ->

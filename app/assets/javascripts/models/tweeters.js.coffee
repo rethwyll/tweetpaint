@@ -25,9 +25,12 @@ class tweetpaint.Models.Tweeters
       tweetpaint.Utilities.complete obj.complete if obj.hasOwnProperty 'complete'
 
   doSearch: (obj) ->
-    $.get obj.url, (resp) =>
-      @tweeters = @extractTweeterData(resp)
-      tweetpaint.Utilities.complete obj.complete if obj.hasOwnProperty 'complete'
+    $.ajax  
+      url: obj.url
+      dataType: 'jsonp'
+      success: (resp) =>
+        @tweeters = @extractTweeterData(resp)
+        tweetpaint.Utilities.complete obj.complete if obj.hasOwnProperty 'complete'
 
   extractTweeterData: (resp) ->
     $.map(resp, (o) => 
