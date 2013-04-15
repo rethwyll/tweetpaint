@@ -1,0 +1,28 @@
+<form id="queue">
+  <legend>Queue</legend>
+  <fieldset>
+    <label>      
+    	Next follow queue operation: 
+    	<input type="text" id="date"> @
+		<div class="input-append">
+		  <input id="time" type="text">
+		  <div class="btn-group">
+		    <button class="btn dropdown-toggle" data-toggle="dropdown">
+		      <span class="caret"></span>
+		    </button>
+		    <ul class="dropdown-menu">
+		      <li>am</li>
+		      <li>pm</li>
+		    </ul>
+		  </div>
+		</div>
+    </label>
+    <button id="submit-search" type="submit" class="btn btn-primary">Schedule</button>
+  </fieldset>
+</form>
+<script type="text/javascript">
+  $(function() {
+    $( "#date" ).datepicker();
+    $('.dropdown-toggle').dropdown()
+  });
+</script>

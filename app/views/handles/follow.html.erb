@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h2>Super cool follow queue action</h2>
+<%= render "queue_form" %>
 <div id="follow-results" class="results"></div>
+<%= render "construction" %>
 <script type="text/javascript" defer>
 $(document).ready(function () {
+
 /*
   var nudgedModel = new tweetpaint.Models.Nudged({ nudged: <%= raw @nudged %> });
   var nudgedView = new tweetpaint.Views.Nudged({model: nudgedModel});

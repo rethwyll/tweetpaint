@@ -4,30 +4,34 @@
   <title>Tweetpaint</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/ui-lightness/jquery-ui.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 
 <% if @showNav %>
-<form class="form-horizontal">
-  <select>
-    <% @handles.each do |handle|  %>
-      <option value="/<%= handle.handle.downcase %>"><%= handle.handle %></option>
-    <% end %>
-  </select>
-  <%= link_to 'Manage Twitter accounts', handles_path %>
-</form>  
-<h1>@<%= @handle.handle %></h1>
-<nav>
-  <ul class="nav nav-tabs">
-    <li><a href="/handles/1/search">Search</a></li>
-    <li><a href="/handles/1/following">Currently Following</a></li>
-    <li><a href="/handles/1/nudged">Nudged</a></li>
-    <li><a href="/handles/1/follow">Follow</a></li>
-    <li><a href="/handles/1/unfollow">Unfollow</a></li>
-  </ul>
-</nav>
+<section class="app-dashboard">
+  <form class="form-horizontal">
+    <select>
+      <% @handles.each do |handle|  %>
+        <option value="/<%= handle.handle.downcase %>"><%= handle.handle %></option>
+      <% end %>
+    </select>
+    <%= link_to 'Manage Twitter accounts', handles_path %>
+  </form>  
+  <h1>@<%= @handle.handle %></h1>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li><a href="/handles/1/search">Search</a></li>
+      <li><a href="/handles/1/following">Currently Following</a></li>
+      <li><a href="/handles/1/nudged">Nudged</a></li>
+      <li><a href="/handles/1/follow">Follow</a></li>
+      <li><a href="/handles/1/unfollow">Unfollow</a></li>
+    </ul>
+  </nav>
+</section>
 <% end %>
 
 
