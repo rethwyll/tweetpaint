@@ -15,21 +15,21 @@ tweetpaint.App = function () {
     });
 
     $('.results').on('click', '.follow', function (e) {
-      /*
       var handle = $(e.target).parents('.tweeter').data('handle');
-      var nudgeModel = new tweetpaint.Models.Nudge({ handle: handle });
-      var nudgeView = new tweetpaint.Views.Nudge({model: nudgeModel, el: $(e.target)});
-      */
-      $(e.target).removeClass('btn-primary').addClass('btn-success').text('Added to Follow Queue')
+      var followQueue = sessionStorage.getItem('followQueue'); 
+      var a = (typeof followQueue === 'string') ? followQueue.split(',') : [];
+      a.push(handle);
+      sessionStorage.setItem('followQueue', a.join(',')); 
+      $(e.target).removeClass('btn-warning').addClass('btn-success').text('Added to Follow Queue!')
     });
 
     $('.results').on('click', '.unfollow', function (e) {
-      /*
       var handle = $(e.target).parents('.tweeter').data('handle');
-      var nudgeModel = new tweetpaint.Models.Nudge({ handle: handle });
-      var nudgeView = new tweetpaint.Views.Nudge({model: nudgeModel, el: $(e.target)});
-      */
-      $(e.target).removeClass('btn-danger').addClass('btn-success').text('Added to Unfollow Queue')
+      var unfollowQueue = sessionStorage.getItem('unfollowQueue'); 
+      var a = (typeof unfollowQueue === 'string') ? unfollowQueue.split(',') : [];
+      a.push(handle);
+      sessionStorage.setItem('unfollowQueue', a.join(',')); 
+      $(e.target).removeClass('btn-warning').addClass('btn-success').text('Added to Unfollow Queue!')
     });
 
     $('.results').on('click', '.nudge', function (e) {

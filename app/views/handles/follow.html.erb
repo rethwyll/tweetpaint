@@ -6,9 +6,8 @@
 <script type="text/javascript" defer>
 $(document).ready(function () {
 
-/*
-  var nudgedModel = new tweetpaint.Models.Nudged({ nudged: <%= raw @nudged %> });
-  var nudgedView = new tweetpaint.Views.Nudged({model: nudgedModel});
-*/
+  var followModel = new tweetpaint.Models.Follow({ follow: sessionStorage.getItem('followQueue') });
+  var followView = new tweetpaint.Views.Follow({model: followModel});
+
 });
 </script>

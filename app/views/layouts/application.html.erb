@@ -89,6 +89,24 @@
 </ul>
 </script>
 
+<script type="text/x-mustache-template" id="tQueue">
+<ul class="unstyled">
+{{#tweeters}}
+  <li class="tweeter picture {{tag}}" data-handle="{{handle}}">
+    <div class="actions">
+    <button class="btn btn-danger">Remove</button>  
+    </div>  
+    <div class="dashboard">
+    <img src="{{image_url}}">
+    </div>
+    <h3 class="handle"><a href="http://www.twitter.com/{{handle}}">{{handle}}</a></h3>
+    <div class="followers">{{followers_count}} followers</div>
+    <div class="score">Score: {{score}}</div>
+  </li>
+{{/tweeters}}
+</ul>
+</script>
+
 <script type="text/x-mustache-template" id="tNudged">
 <ul class="unstyled">
 {{#tweeters}}
